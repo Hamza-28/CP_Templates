@@ -1,0 +1,5 @@
+gcd(a,gcd(b,c))=gcd(gcd(a,b),c)
+gcd(a,b,c)=gcd(gcd(a,b),c)
+gcd(a,b)=gcd(a−b,b)
+lcm(a, gcd(b,c)) = gcd(lcm(a, b), lcm(a, c))
+gcd(a, lcm(b, c)) = lcm(gcd(a, b), gcd(a, c))

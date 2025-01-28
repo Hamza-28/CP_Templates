@@ -40,6 +40,7 @@ struct _2SAT {
 	}
 
 	bool assignment() {
+		Kosaraju();
 		for (int i = 0; i < N; ++i) {
 			if (comp[i] == comp[i + N]) {
 				return false;

@@ -29,7 +29,7 @@ int main(int argc, char* args[]) {
 		s += c;
 	}
 
-	shuffle(per.begin(), per.end(), rng);//generates permuation
+	shuffle(per.begin(), per.end(), rng);
 	
 	return 0;
 }

@@ -50,27 +50,23 @@ void dbg_out(Head H, Tail... T) {
   dbg_out(T...);
 }
 
-#define dbg(...) cerr << "[" << #__VA_ARGS__ << "]:", dbg_out(__VA_ARGS__)
+#define dbg(...) cerr << "Line " << __LINE__ << ": " << "[" << #__VA_ARGS__ << "]:", dbg_out(__VA_ARGS__)
+/*
+#include "dbg.h"
 
-
-// Use Case
-// #include "dbg.h"
-// #include <bits/stdc++.h>
-
-// using namespace std;
-
-// int main() {
-//   char c = 'a';
-//   int a = 2;
-//   string s = "diu";
-//   vector<int> v = {2, 1, 3};
-//   set<int> st = {2, 1, 3};
-//   map<int, int> cnt;
-//   cnt[0]++, cnt[1]++, cnt[0]++;
-//   dbg(c, a, s, v, st, cnt);
-//   dbg('c');
-//   dbg("diu");
-//   bitset<5> bs = 5;
-//   dbg(bs);
-//   dbg(int(bs[2]));
-// }
+int main() {
+  char c = 'a';
+  int a = 2;
+  string s = "diu";
+  vector<int> v = {2, 1, 3};
+  set<int> st = {2, 1, 3};
+  map<int, int> cnt;
+  cnt[0]++, cnt[1]++, cnt[0]++;
+  dbg(c, a, s, v, st, cnt);
+  dbg('c');
+  dbg("diu");
+  bitset<5> bs = 5;
+  dbg(bs);
+  dbg(int(bs[2]));
+}
+*/ 

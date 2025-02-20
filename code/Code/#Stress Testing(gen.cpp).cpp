@@ -15,7 +15,7 @@ inline double gen_random_real(double l, double r) {
 
 int main(int argc, char* args[]) {
 	int _ = atoi(args[1]);
-	mt19937 mt(_);
+	rng.seed(_);
 
 	int n = gen_random(1, 5);
 	cout << n << '\n';

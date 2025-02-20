@@ -6,8 +6,7 @@
  * called "Convex Hull trick"
  * 'Dynamic' means that there is no restriction on adding lines order
  */
-class ConvexHullDynamic
-{
+class ConvexHullDynamic {
     typedef long long coef_t;
     typedef long long coord_t;
     typedef long long val_t;
@@ -17,8 +16,7 @@ class ConvexHullDynamic
      * and 'xLeft' which is intersection with previous line in hull(first line has -INF)
      */
 private:
-    struct Line
-    {
+    struct Line {
         coef_t a, b;
         double xLeft;
  
@@ -29,10 +27,9 @@ private:
         val_t valueAt(coord_t x) const { return a*x+b; }
         friend bool areParallel(const Line& l1, const Line& l2) { return l1.a==l2.a; }
         friend double intersectX(const Line& l1, const Line& l2) { return areParallel(l1,l2)?INFINITY:1.0*(l2.b-l1.b)/(l1.a-l2.a); }
-        bool operator<(const Line& l2) const
-        {
+        bool operator<(const Line& l2) const {
             if (l2.type == line)
-                return this->a     < l2.a;
+                return this->a < l2.a;
             if (l2.type == maxQuery)
                 return this->xLeft < l2.val;
             if (l2.type == minQuery)
@@ -41,8 +38,8 @@ private:
     };
  
 private:
-    bool            isMax; //whether or not saved envelope is top(search of max value)
-    std::set<Line>  hull;  //envelope itself
+    bool isMax; //whether or not saved envelope is top(search of max value)
+    std::set<Line> hull;  //envelope itself
  
 private:
     /*
@@ -61,22 +58,17 @@ private:
      * COMPLEXITY:  O(1)
      */
     bool irrelevant(const Line& l1, const Line& l2, const Line& l3) { return intersectX(l1,l3) <= intersectX(l1,l2); }
-    bool irrelevant(std::set<Line>::iterator it)
-    {
-        return hasPrev(it) && hasNext(it)
-               && (    isMax && irrelevant(*std::prev(it), *it, *std::next(it))
-                       || !isMax && irrelevant(*std::next(it), *it, *std::prev(it)) );
+    bool irrelevant(std::set<Line>::iterator it) {
+        return hasPrev(it) && hasNext(it) && (isMax && irrelevant(*std::prev(it), *it, *std::next(it)) || !isMax && irrelevant(*std::next(it), *it, *std::prev(it)));
     }
  
     /*
      * INFO:        Updates 'xValue' of line pointed by iterator 'it'
      * COMPLEXITY:  O(1)
      */
-    std::set<Line>::iterator updateLeftBorder(std::set<Line>::iterator it)
-    {
+    std::set<Line>::iterator updateLeftBorder(std::set<Line>::iterator it) {
         if (isMax && !hasPrev(it) || !isMax && !hasNext(it))
             return it;
- 
         double val = intersectX(*it, isMax?*std::prev(it):*std::next(it));
         Line buf(*it);
         it = hull.erase(it);
@@ -93,15 +85,13 @@ public:
      *              Line is of type 'y=a*x+b' represented by 2 coefficients 'a' and 'b'
      * COMPLEXITY:  Adding N lines(N calls of function) takes O(N*log N) time
      */
-    void addLine(coef_t a, coef_t b)
-    {
+    void addLine(coef_t a, coef_t b) {
         //find the place where line will be inserted in set
         Line l3 = Line(a, b);
         auto it = hull.lower_bound(l3);
  
         //if parallel line is already in set, one of them becomes irrelevant
-        if (it!=hull.end() && areParallel(*it, l3))
-        {
+        if (it!=hull.end() && areParallel(*it, l3)) {
             if (isMax && it->b < b || !isMax && it->b > b)
                 it = hull.erase(it);
             else
@@ -127,8 +117,7 @@ public:
      * INFO:        Query, which returns max/min(depends on hull type - see more info above) value in point with abscissa 'x'
      * COMPLEXITY:  O(log N), N-amount of lines in hull
      */
-    val_t getBest(coord_t x) const
-    {
+    val_t getBest(coord_t x) const {
         Line q;
         q.val = x;
         q.type = isMax ? Line::Type::maxQuery : Line::Type::minQuery;

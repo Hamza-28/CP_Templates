@@ -32,6 +32,9 @@ struct Point {
 	long long operator *(const Point& p) const {
 		return 1LL * x * p.y - 1LL * y * p.x;
 	}
+	long long triangle(const point &a, const point &b) {
+		return (a - *this) * ( b - *this);
+	}
 	bool isInside(Point& a, Point& b) const { // if p is inside segment a-b
 		if ((a - *this) * (b - *this) != 0) return false;
 		bool d1 = this->x >= min(a.x, b.x) and this->x <= max(a.x, b.x); 

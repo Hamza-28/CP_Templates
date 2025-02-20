@@ -1,6 +1,7 @@
 \subsection{Geometry}
 \subsubsection{Triangles}
 Circumradius: $R=\dfrac{abc}{4A}$ , Inradius: $r=\dfrac{A}{s}$\\
+The area of a triangle using two sides and the included angle can be given as:  \[ A = \frac{1}{2} ab \sin \angle C \]
 Length of median (divides triangle into two equal-area triangles): $m_a=\tfrac{1}{2}\sqrt{2b^2+2c^2-a^2}$\\
 Length of bisector (divides angles in two): $s_a=\sqrt{bc\left[1-\left(\dfrac{a}{b+c}\right)^2\right]}$\\
 Law of tangents: $\dfrac{a+b}{a-b}=\dfrac{\tan\dfrac{\alpha+\beta}{2}}{\tan\dfrac{\alpha-\beta}{2}}$\\
@@ -20,6 +21,36 @@ x = r\sin\theta\cos\phi & r = \sqrt{x^2+y^2+z^2}\\
 y = r\sin\theta\sin\phi & \theta = \textrm{acos}(z/\sqrt{x^2+y^2+z^2})\\
 z = r\cos\theta & \phi = \textrm{atan2}(y,x)
 \end{array}\]
+
+\subsubsection{Pick's Theorem:} \\
+  Given a lattice polygon with non-zero area, we define: S as the area of the polygon, I as the number of integer-coordinate points strictly inside the polygon, B as the number of integer-coordinate points on the boundary of the polygon.
+  Then, Pick's Theorem states: $$S=I+\frac{B}{2}-1$$
+  The number of lattice points on segments (x1, y1) to (x2 , y2) is: gcd(abs(x2 - x1) , abs(y2 - y1)) + 1
+
+\subsubsection{Polygon}
+For a regular polygon with \( n \) sides and side length \( a \), the circumradius \( R \) is given by:
+\[
+R = \frac{a}{2 \sin\left(\frac{\pi}{n}\right)}
+\]
+
+\subsubsection{Area of a Circular Segment}
+The area of a circular segment, which is the region enclosed by a chord and the corresponding arc, can be calculated using the formula:
+
+\[
+A = \frac{R^2}{2} \left(\theta - \sin\theta\right)
+\]
+
+where:
+\( R \) is the radius of the circle,
+\( \theta \) is the central angle subtended by the chord, in radians.
+
+% \subsubsection{Sine Rule}
+% For finding sides: $$ \frac{a}{\sin(A)} = \frac{b}{\sin(B)} = \frac{c}{\sin(C)} $$
+% For finding angles: $$ \frac{\sin(A)}{a} = \frac{\sin(B)}{b} = \frac{\sin(C)}{c} $$
+
+% \subsubsection{Cosine Rule}
+% For finding sides: $$ a^2 = b^2 + c^2 - 2bc\cos(A) $$
+% For finding angles: $$ \cos(A) = \frac{b^2 + c^2 - a^2}{2bc} $$
 
 \subsection{Binomial Coefficent}
 
@@ -50,7 +81,7 @@ z = r\cos\theta & \phi = \textrm{atan2}(y,x)
 
 \textbf{Lucas Theorem}
 
-\[ \binom{m}{n} \equiv \prod_{i = 0}^k \binom{m_i}{n_i} (\mod p) \]
+\[ \binom{m}{n} \equiv \prod_{i = 0}^k \binom{m_i}{n_i}   (\mod p) \]
 
 \begin{itemize}
   \item \( \binom{m}{n} \) is divisible by p if and only if at least one of the base-\(p\) digits of \( n \) is greater than the corresponding base-\( p \) digit of \( m \).
@@ -512,4 +543,4 @@ To maximize the sum of adjacent differences of a permuation, it is necessary and
 
 \subsection{Convolution} \\
 - Hamming Distance: Replace \( 0 \) with \( -1 \)
-- SQRT Decomposition: Find block size, B = sqrt(8 * n)
+- SQRT Decomposition: Find block size, B = \sqrt{(8 * n)}

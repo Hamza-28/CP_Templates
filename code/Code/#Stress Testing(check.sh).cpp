@@ -13,7 +13,7 @@ for ((i = 1; ; ++i)); do
 done
 echo -e "WA on the following test:" 
 cat in
-echo -e "\nYour Answer is:"
-cat out1
-echo -e "\nCorrect answer is:"
+echo -e "\nExpected:"
 cat out2
+echo -e "\nFound:"
+cat out1

@@ -18,15 +18,10 @@ int main(int argc, char* args[]) {
 	rng.seed(_);
 
 	int n = gen_random(1, 5);
-	cout << n << '\n';
 
 	vector<int> per;
-	string s;
 	for (int i = 0; i < n; ++i) {
 		per.push_back(i + 1);
-		cout << gen_random(-50, 50) << " \n"[i == n - 1];
-		char c = 'a' + gen_random(0, 25);
-		s += c;
 	}
 
 	shuffle(per.begin(), per.end(), rng);

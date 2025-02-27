@@ -32,8 +32,8 @@ struct Point {
 	long long operator *(const Point& p) const {
 		return 1LL * x * p.y - 1LL * y * p.x;
 	}
-	long long triangle(const point &a, const point &b) {
-		return (a - *this) * ( b - *this);
+	long long triangle(const Point& a, const Point& b) {
+		return (a - *this) * (b - *this);
 	}
 	pair<double, double> rotate(double deg) {
 		deg = deg * M_PI / 180.0;

@@ -23,7 +23,7 @@ void solve() {
 			}
 	}
 	if (x == -1) cout << "No negative cycle found\n";
-	else {
+	else {            // Path Printing
 		int y = x;
 		for (int i = 0; i < n; ++i) y = p[y];
 

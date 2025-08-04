@@ -1,3 +1,4 @@
+// Longest Proper Prefix which is also a Suffix
 vector<int> prefix_function(string &s) {
   int n = (int)s.length();
   vector<int> pi(n);

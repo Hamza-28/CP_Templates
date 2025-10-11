@@ -8,7 +8,7 @@ void dfs1(int v) {
 	vis[v] = 1;
 	for (int u: adj[v]) {
 		if (!vis[u]) {
-			dfs(u);
+			dfs1(u);
 		}
 	}
 	order.push_back(v);

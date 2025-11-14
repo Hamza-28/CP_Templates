@@ -8,10 +8,10 @@ struct Point {
 		this->x = x;
 		this->y = y;
 	}	
-	bool operator ==(const Point& p) {
+	bool operator ==(const Point& p) const {
 		return (this->x == p.x and this->y == p.y);
 	}
-	bool operator <(const Point& p) {
+	bool operator <(const Point& p) const {
 		return make_pair(this->x, this->y) < make_pair(p.x, p.y); // with respect to x-axis
 		// // with respect to angle from (0, 0)
 		// if (*this * p == 0) {

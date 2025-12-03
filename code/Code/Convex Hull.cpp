@@ -1,10 +1,10 @@
 struct Point {
-	int x, y;
+	ll x, y;
 	Point () {
 		this->x = 0;
 		this->y = 0;
 	}	
-	Point (int x, int y) {
+	Point (ll x, ll y) {
 		this->x = x;
 		this->y = y;
 	}	
@@ -29,10 +29,10 @@ struct Point {
 		q.y = this->y - p.y;
 		return q;
 	}
-	long long operator *(const Point& p) const {
-		return 1LL * x * p.y - 1LL * y * p.x;
+	ll operator *(const Point& p) const {
+		return x * p.y - y * p.x;
 	}
-	long long triangle(const Point& a, const Point& b) {
+	ll triangle(const Point& a, const Point& b) {
 		return (a - *this) * (b - *this);
 	}
 	pair<double, double> rotate(double deg) {

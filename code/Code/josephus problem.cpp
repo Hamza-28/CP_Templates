@@ -1,3 +1,6 @@
+/**
+*Description: Given natural numbers n and k, the numbers 1 to n are arranged in a circle. Starting from 1, every k-th number is removed in a circular manner. This continues until only one number remains. Find the last remaining number.
+*/ 
 int josephus(int n, int k) {
   if (n == 1)
     return 0;

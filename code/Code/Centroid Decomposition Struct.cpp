@@ -1,4 +1,3 @@
-// 
 struct CentroidDecomposition {
   set<int> adj[N];
   map<int, int> dis[N];
